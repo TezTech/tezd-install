@@ -1,18 +1,26 @@
 ## Tezos Daemon Install
 
-#Update distro
+**Update distro**
+```
 sudo apt-get update
 sudo apt-get dist-upgrade -y
+```
 
-#Create admin account
+**Create admin account**
+```
 adduser tezos
 adduser tezos sudo
 su - tezos
+```
 
-#Install
+**Install**
+```
 sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
+```
 
-#Run
+**Run**
+```
 sh tezd.sh run
+```
 
-#Notes - only works on ubuntu for now
+**Notes - only works on ubuntu for now**
