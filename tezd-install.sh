@@ -6,6 +6,7 @@ current_dir=$PWD
 echo $PWD
 
 echo "Building Tezos Core..."
+echo "Installing deps..."
 if ! grep -q "^deb .*ansible/bubblewrap" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
 	echo "Installing bubblewrap PPA..."
 	echo -e "\n" | sudo add-apt-repository ppa:ansible/bubblewrap
@@ -14,9 +15,8 @@ if ! grep -q "^deb .*git-core/ppa" /etc/apt/sources.list /etc/apt/sources.list.d
 	echo "Installing git-core PPA..."
 	echo -e "\n" | sudo add-apt-repository ppa:git-core/ppa
 fi
-echo "Installing deps..."
 sudo apt-get update
-sudo apt-get install -y wget liblz4-tool patch unzip make gcc m4 git g++ aspcud bubblewrap curl bzip2 rsync libev-dev libgmp-dev pkg-con$
+sudo apt-get install -y wget liblz4-tool patch unzip make gcc m4 git g++ aspcud bubblewrap curl bzip2 rsync libev-dev libgmp-dev pkg-config libhidapi-dev
 echo "Installing opam..."
 wget https://github.com/ocaml/opam/releases/download/2.0.0/opam-2.0.0-x86_64-linux
 sudo mv opam-2.0.0-x86_64-linux /usr/local/bin/opam
