@@ -17,6 +17,10 @@ if ! grep -q "^deb .*git-core/ppa" /etc/apt/sources.list /etc/apt/sources.list.d
 fi
 sudo apt-get update
 sudo apt-get install -y wget liblz4-tool patch unzip make gcc m4 git g++ aspcud bubblewrap curl bzip2 rsync libev-dev libgmp-dev pkg-config libhidapi-dev
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+sudo apt install nodejs
+sudo npm install -g forever
+
 echo "Installing opam..."
 wget https://github.com/ocaml/opam/releases/download/2.0.0/opam-2.0.0-x86_64-linux
 sudo mv opam-2.0.0-x86_64-linux /usr/local/bin/opam
@@ -37,9 +41,6 @@ cd $current_dir
 echo "Tezos Core built!"
 
 echo "Building TZProxy..."
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-sudo apt install nodejs
-sudo npm install -g forever
 git clone -b master https://github.com/TezTech/tzproxy.git
 cd tzproxy
 npm install
@@ -52,12 +53,12 @@ cd scripts
 cat > run.sh << EOF
 #!/bin/bash
 echo "Running tzProxy...\n"
-if [ ! -f "$current_dir/.tezos-node/config.json" ]; then echo "Creating config..."; $current_dir/tezos/tezos-node config init --rpc-addr 127.0.0.1:8732; fi
-if [ ! -f "$current_dir/.tezos-node/identity.json" ]; then $current_dir/tezos/tezos-node identity generate 26.; fi
+if [ ! -f "$HOME/.tezos-node/config.json" ]; then echo "Creating config..."; $HOME/tezos/tezos-node config init --rpc-addr 127.0.0.1:8732; fi
+if [ ! -f "$HOME/.tezos-node/identity.json" ]; then $HOME/tezos/tezos-node identity generate 26.; fi
 echo "Starting node..."
 nohup $current_dir/tezos/tezos-node run > $current_dir/node.log &
 echo "Starting proxy..."
-forever -o $current_dir/proxy.log start $current_dir/proxy/index.js
+forever -o $current_dir/proxy.log start $current_dir/tzproxy/index.js
 EOF
 cat > stop.sh << EOF
 #!/bin/bash
@@ -76,6 +77,13 @@ sh stop.sh
 cd tezos && git checkout mainnet && git pull && eval $(opam env) && make && cd $current_dir
 sh run.sh
 EOF
+cat > setup.sh << EOF
+#!/bin/bash
+sh stop.sh
+if [ -f "$HOME/.tezos-node/config.json" ]; then rm -f "$HOME/.tezos-node/config.json"; fi
+if [ -f "$HOME/.tezos-node/identity.json" ]; then rm -f "$HOME/.tezos-node/identity.json"; fi
+sh run.sh
+EOF
 cd $current_dir
 echo "scripts built!"
 echo "Downloading quicksync..."
@@ -91,16 +99,16 @@ echo "quicksync done!"
 
 cat > tezd.sh << EOF
 #!/bin/bash
-if test "$1" = 'stop'; then
+if test "\$1" = 'stop'; then
 	sh scripts/stop.sh
 fi
-if test "$1" = 'run';  then
+if test "\$1" = 'run';  then
 	sh scripts/run.sh
 fi
-if test "$1" = 'restart'; then
+if test "\$1" = 'restart'; then
 	sh scripts/restart.sh
 fi
-if test "$1" = 'update'; then
+if test "\$1" = 'update'; then
 	sh scripts/update.sh
 fi
 EOF
