@@ -25,4 +25,7 @@ fi
 
 opam list --installed opam-depext || opam --yes install opam-depext
 
-"$script_dir"/install_build_deps.raw.sh
+opams=$(find "$src_dir/vendors" "$src_dir/src" -name \*.opam -print)
+
+opam --yes install $opams --deps-only --with-test
+
