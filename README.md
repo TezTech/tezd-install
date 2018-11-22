@@ -2,20 +2,12 @@
 
 **Update distro**
 ```
-sudo apt-get update
-sudo apt-get dist-upgrade -y
-```
-
-**Create admin account**
-```
-adduser tezos
-adduser tezos sudo
-su - tezos
+sudo apt-get update && apt-get dist-upgrade -y
 ```
 
 **Install**
 ```
-sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
+sudo sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
 ```
 
 **Run**
