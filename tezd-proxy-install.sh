@@ -8,7 +8,7 @@ cd tzproxy
 npm install
 cat > start.sh << EOF
 #!/bin/bash
-forever start index.js
+forever start $HOME/tzproxy/index.js
 EOF
 cd ~
 sh ~/tzproxy/start.sh
