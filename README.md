@@ -4,6 +4,12 @@ Follow these instructions to quickly and easilly setup a working tezos-node with
 
 We have also included a proxy server in nodejs. This setup is perfect to run remote nodes. Currently, baking can be done but it is not handled by the tezd script.
 
+**Easy one-liner**
+```
+sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-full.sh)"
+```
+This command will update your distro, install tezd, tzproxy and add both scripts to run on boot. Otherwise you can manually run commands below.
+
 **Update distro - currently only Ubuntu 16.04 is supported, but we are looking to expand this**
 ```
 sudo apt-get update && apt-get dist-upgrade -y
