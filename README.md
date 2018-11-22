@@ -11,7 +11,7 @@ sudo apt-get update && apt-get dist-upgrade -y
 
 **Install tezd**
 ```
-sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
+sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)"
 ```
 
 **You can also install and run a simple nodejs RPC server**
@@ -28,7 +28,7 @@ forever start index.js
 
 Or you can use the sh script
 ```
-sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-proxy-install.sh)
+sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-proxy-install.sh)"
 ```
 
 **You can add the scripts to your crontab to start on boot**
