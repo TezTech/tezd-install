@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root or using sudo!"
+  exit
+fi
 HPATH=/usr/lib/tezd
 echo "Running TezTech Tezos Daemon (tezd)..."
 
