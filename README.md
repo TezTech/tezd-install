@@ -1,22 +1,18 @@
 ## Tezos Daemon Install
 
-**Update distro**
+**Update distro - currently only Ubuntu 16.04 is supported, but we are looking to expand this**
 ```
 sudo apt-get update && apt-get dist-upgrade -y
 ```
 
-**Install**
+**Install tezd**
 ```
 sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
 ```
 
-**Run**
-```
-sh tezd.sh run
-```
-
 **You can also install and run a simple nodejs RPC server**
 ```
+cd ~
 curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 sudo apt install nodejs
 sudo npm install -g forever
@@ -26,4 +22,28 @@ npm install
 forever start index.js
 ```
 
-**Notes - only works on ubuntu for now**
+**You can add the scripts to your crontab to start on boot**
+```
+(crontab -l ; echo "@reboot tezd start") | crontab 
+(crontab -l ; echo "@reboot forever ~/tzproxy/index.php start") | crontab 
+```
+
+**Commands**
+```
+#Start your node and configure your identity and setup if it's not setup already
+tezd start
+
+#Stop and restart
+tezd stop
+tezd restart
+
+#Start clears out an existing identity and config, and runs tezd start
+tezd setup
+
+#Update your node to the latest commit of the current branch. Doesn't run make build-deps, so only works for small updates
+tezd update
+
+#Rebuild your node to the latest version. Use this if update fails
+tezd rebuild
+
+```
