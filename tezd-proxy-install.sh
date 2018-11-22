@@ -6,4 +6,10 @@ sudo npm install -g forever
 git clone -b master https://github.com/TezTech/tzproxy.git
 cd tzproxy
 npm install
+cat > start.sh << EOF
+#!/bin/bash
 forever start index.js
+EOF
+cd ~
+sh ~/tzproxy/start.sh
+exit
