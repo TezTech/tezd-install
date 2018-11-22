@@ -7,7 +7,7 @@ sudo apt-get update && apt-get dist-upgrade -y
 
 **Install**
 ```
-sudo sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
+sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)
 ```
 
 **Run**
