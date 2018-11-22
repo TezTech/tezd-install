@@ -120,9 +120,9 @@ EOF
 	cd $HPATH
 fi
 
-chown -rf tezd:tezd $HPATH/.tezos-node
-chown -rf tezd:tezd $HPATH/scripts
-chown -rf tezd:tezd $HPATH/tezd.sh
+chown -Rf tezd:tezd $HPATH/.tezos-node
+chown -Rf tezd:tezd $HPATH/scripts
+chown -Rf tezd:tezd $HPATH/tezd.sh
 
 sh $HPATH/tezd.sh setup
 echo "tezd install complete!"
