@@ -22,6 +22,11 @@ npm install
 forever start index.js
 ```
 
+Or you can use the sh script
+```
+sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-proxy-install.sh)
+```
+
 **You can add the scripts to your crontab to start on boot**
 ```
 (crontab -l ; echo "@reboot tezd start") | crontab 
