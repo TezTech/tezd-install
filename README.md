@@ -1,5 +1,9 @@
 ## Tezos Daemon Install
 
+Follow these instructions to quickly and easilly setup a working tezos-node with minimal bootstrapping time. We utilize the QuckSync script by TzDutch to speed this up. Once installed, you can utilise the tezos-client commands via tezd client.
+
+We have also included a proxy server in nodejs. This setup is perfect to run remote nodes. Currently, baking can be done but it is not handled by the tezd script.
+
 **Update distro - currently only Ubuntu 16.04 is supported, but we are looking to expand this**
 ```
 sudo apt-get update && apt-get dist-upgrade -y
@@ -52,3 +56,7 @@ tezd update
 tezd rebuild
 
 ```
+## Credits
+- Shaun Belcher for his [Fast Build script](https://medium.com/@shaunbelcher/building-tezos-on-ubuntu-fast-build-b2397bf01678)
+- Fred Yankowski for his [work on setting up nodes](https://github.com/tezoscommunity/FAQ/blob/master/Compile_Mainnet.md)
+- TZDutch for their [QuickSync script](https://www.tzdutch.com/quicksync/)
