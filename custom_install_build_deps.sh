@@ -1,6 +1,6 @@
 #! /bin/sh
 
-script_dir="$(cd "$(dirname "$0")" && echo "$(pwd -P)/")"
+script_dir="$(cd "$(dirname "$0")" && echo "$(pwd -P)/scripts/")"
 src_dir="$(dirname "$script_dir")"
 
 . "$script_dir"/version.sh
