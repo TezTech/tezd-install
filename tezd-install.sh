@@ -54,6 +54,7 @@ if [ ! -f "$HPATH/.tezos-node/identity.json" ]; then
     fi
 echo "Starting node..."
 su tezd -c "nohup $HPATH/tezos/tezos-node run > $HPATH/node.log &"
+exit
 EOF
 cat > stop.sh << EOF
 #!/bin/bash
@@ -125,9 +126,10 @@ EOF
 	cd $HPATH
 fi
 
+chmod a+rwx,g-w,o-w /bin/tezd
 chown -Rf tezd:tezd $HPATH/.tezos-node
 chown -Rf tezd:tezd $HPATH/scripts
 chown -Rf tezd:tezd $HPATH/tezd.sh
 
-sh $HPATH/tezd.sh setup
+tezd setup
 echo "tezd install complete!"
