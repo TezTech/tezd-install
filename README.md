@@ -4,6 +4,8 @@ Follow these instructions to quickly and easilly setup a working tezos-node with
 
 We have also included a proxy server in nodejs. This setup is perfect to run remote nodes. Currently, baking can be done but it is not handled by the tezd script.
 
+If you need a VPS, you can get one from [Linode](https://www.linode.com/?r=21a74a74d5abf8e5056f656262ea59a832d29f93) - this script works really well with an Ubuntu 16.04 image. This link sends us a little kickback too.
+
 **Easy one-liner**
 ```
 sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-full.sh)"
