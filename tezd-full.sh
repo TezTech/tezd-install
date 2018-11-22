@@ -1,6 +1,5 @@
 #!/bin/bash
-sudo apt-get update
-sudo apt-get dist-upgrade -y
+sudo apt-get update && apt-get dist-upgrade -y
 
 sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)"
 sh -c "$<(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-proxy-install.sh)"
