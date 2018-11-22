@@ -35,7 +35,7 @@ echo "Building tezos-core..."
 su tezd -c "git clone -b mainnet https://gitlab.com/tezos/tezos.git"
 sleep 5
 cd $HPATH/tezos
-su tezd -c "make build-deps && eval \$(opam env) && make"
+su tezd -c "sh -c '$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/custom_install_build_deps.sh)' && eval \$(opam env) && make"
 cd $HPATH
 
 echo "Building scripts..."
