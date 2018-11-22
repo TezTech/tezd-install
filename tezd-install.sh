@@ -4,7 +4,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 HPATH=/usr/lib/tezd
-echo "Running TezTech Tezos Daemon (tezd)..."
+echo "Installing TezTech Tezos Daemon (tezd)..."
 
 echo "Installing deps..."
 if ! grep -q "^deb .*ansible/bubblewrap" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
