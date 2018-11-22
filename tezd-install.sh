@@ -76,7 +76,7 @@ cat > rebuild.sh << EOF
 #!/bin/bash
 sh $HPATH/scripts/stop.sh
 cd $HPATH/tezos
-su tezd -c "sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-rebuild.sh)"
+su tezd -c 'sh -c "\$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-rebuild.sh)"'
 su tezd -c "\$(opam env) && make build-deps && make"
 sh $HPATH/scripts/start.sh
 EOF
