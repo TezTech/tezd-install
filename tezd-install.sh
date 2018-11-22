@@ -87,7 +87,7 @@ if [ -f "$HPATH/.tezos-node/identity.json" ]; then rm -f "$HPATH/.tezos-node/ide
 sh $HPATH/scripts/start.sh
 EOF
 cd $HPATH
-cat > tezd.sh << EOF
+cat > /bin/tezd << EOF
 #!/bin/bash
 if test "\$1" = 'stop'; then
 	sh $HPATH/scripts/stop.sh
@@ -107,7 +107,12 @@ fi
 if test "\$1" = 'setup'; then
 	sh $HPATH/scripts/setup.sh
 fi
+if test "\$1" = 'client'; then
+  su tezd -c "$HPATH/tezos/tezos-\$@"; 
+fi
 EOF
+
+
 if [ ! -d "$HPATH/.tezos-node" ]; then 
 	echo "Downloading quicksync..."
 	mkdir $HPATH/.tezos-node
