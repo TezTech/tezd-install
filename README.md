@@ -13,6 +13,7 @@ sudo apt-get update && apt-get dist-upgrade -y
 ```
 sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)"
 ```
+Note: This can take approx. 40 minutes depending on your connection speed. There may be a couple of prompts on screen during the first 10 minutes.
 
 **You can also install and run a simple nodejs RPC server**
 ```
