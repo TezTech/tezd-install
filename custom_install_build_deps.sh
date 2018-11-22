@@ -27,5 +27,5 @@ opam list --installed opam-depext || opam --yes install opam-depext
 
 opams=$(find "$src_dir/vendors" "$src_dir/src" -name \*.opam -print)
 
-opam --yes install $opams
+opam install $opams --yes --deps-only --with-test
 
