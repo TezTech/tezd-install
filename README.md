@@ -34,7 +34,7 @@ sh <(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd
 **You can add the scripts to your crontab to start on boot**
 ```
 (crontab -l ; echo "@reboot tezd start") | crontab 
-(crontab -l ; echo "@reboot forever ~/tzproxy/index.php start") | crontab 
+(crontab -l ; echo "@reboot sh $HOME/tzproxy/start.sh") | crontab 
 ```
 
 **Commands**
