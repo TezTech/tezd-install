@@ -120,7 +120,7 @@ if [ ! -d "$HPATH/.tezos-node" ]; then
 	cd $HPATH/.tezos-node
 	wget http://quicksync.tzdutch.com/latest.tar.lz4
 	lz4 -d latest.tar.lz4 | tar xf -
-	rm -rf latest.tar.lz4
+	rm -f latest.tar.lz4
 	cat > version.json << EOF
 { "version": "0.0.1" }
 EOF
