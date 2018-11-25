@@ -130,7 +130,6 @@ fi
 chmod a+rwx,g-w,o-w /bin/tezd
 chown -Rf tezd:tezd $HPATH/.tezos-node
 chown -Rf tezd:tezd $HPATH/scripts
-chown -Rf tezd:tezd $HPATH/tezd.sh
 
 tezd setup
 echo "tezd install complete!"
