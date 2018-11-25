@@ -1,2 +1,2 @@
 #!/bin/bash
-git checkout mainnet && get fetch && git reset --hard origin/mainnet && git clean -dxf
+git checkout mainnet && git fetch && git reset --hard origin/mainnet && git clean -dxf
