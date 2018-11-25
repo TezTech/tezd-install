@@ -1,3 +1,4 @@
+#!/bin/bash
 HPATH=/usr/lib/tezd
 echo "Updating scripts..."
 rm -rf $HPATH/scripts 
