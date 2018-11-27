@@ -92,4 +92,3 @@ EOF
 
 chmod a+rwx,g-w,o-w /bin/tezd
 chown -Rf tezd:tezd $HPATH/scripts
-tezd start
