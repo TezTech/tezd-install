@@ -38,7 +38,7 @@ cd $HPATH/tezos
 su tezd -c "sh -c '$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/custom_install_build_deps.sh)' && eval \$(opam env) && make"
 cd $HPATH
 
-sh -c "\$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-update-scripts.sh)"
+sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-update-scripts.sh)"
 
 if [ ! -d "$HPATH/.tezos-node" ]; then 
 	echo "Downloading quicksync..."
