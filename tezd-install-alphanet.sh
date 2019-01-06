@@ -9,11 +9,11 @@ echo "Installing TezTech Tezos Daemon (tezd)..."
 echo "Installing deps..."
 if ! grep -q "^deb .*ansible/bubblewrap" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
 	echo "Installing bubblewrap PPA..."
-	echo -e "\n" | sudo add-apt-repository ppa:ansible/bubblewrap
+	echo -e "\n" | sudo add-apt-repository -y ppa:ansible/bubblewrap
 fi
 if ! grep -q "^deb .*git-core/ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
 	echo "Installing git-core PPA..."
-	echo -e "\n" | sudo add-apt-repository ppa:git-core/ppa
+	echo -e "\n" | sudo add-apt-repository -y ppa:git-core/ppa
 fi
 sudo apt-get update
 sudo apt-get install -y wget liblz4-tool patch unzip make gcc m4 git g++ aspcud bubblewrap curl bzip2 rsync libev-dev libgmp-dev pkg-config libhidapi-dev
