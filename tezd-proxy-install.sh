@@ -1,15 +1,6 @@
 #!/bin/bash
-cd ~
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-sudo apt install -y nodejs
-sudo npm install -g forever
-git clone -b master https://github.com/TezTech/tzproxy.git
-cd tzproxy
-npm install
-cat > start.sh << EOF
-#!/bin/bash
-forever start $HOME/tzproxy/index.js
-EOF
-cd ~
-sh ~/tzproxy/start.sh
+sudo apt-get -y install nginx
+sudo update-rc.d nginx enable
+sudo rm -f /etc/nginx/nginx.conf
+wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/TezTech/tzproxy/master/nginx.conf
 exit
