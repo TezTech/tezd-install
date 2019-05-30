@@ -47,19 +47,7 @@ cd $HPATH/tezos
 su tezd -c 'sh -c "\$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-rebuild.sh)"'
 su tezd -c "make build-deps  && eval \\\$(opam env) && make"
 if [ ! -d "$HPATH/.tezos-node" ]; then 
-	echo "Downloading quicksync..."
-	mkdir $HPATH/.tezos-node
-	cd $HPATH/.tezos-node
-	cat > version.json << EOF
-{ "version": "0.0.3" }
-EOF
-
-	wget http://quicksync.tzdutch.com/latest.tar.lz4
-	lz4 -d latest.tar.lz4 | tar xf -
-	rm -f latest.tar.lz4
-
-	cd $HPATH
-	chown -Rf tezd:tezd $HPATH/.tezos-node
+su tezd -c 'sh -c "\$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-quicksync.sh)"'
 else
 	su tezd -c "$HPATH/tezos/tezos-node upgrade storage"
 fi
