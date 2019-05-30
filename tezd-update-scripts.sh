@@ -46,6 +46,7 @@ sh $HPATH/scripts/stop.sh
 cd $HPATH/tezos
 su tezd -c 'sh -c "\$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-rebuild.sh)"'
 su tezd -c "make build-deps  && eval \\\$(opam env) && make"
+su tezd -c "$HPATH/tezos/tezos-node upgrade storage"
 sh $HPATH/scripts/start.sh
 EOF
 cat > setup.sh << EOF
