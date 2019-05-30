@@ -19,8 +19,8 @@ sudo apt-get update
 sudo apt-get install -y wget liblz4-tool patch unzip make gcc m4 git g++ aspcud bubblewrap curl bzip2 rsync libev-dev libgmp-dev pkg-config libhidapi-dev
 
 echo "Installing opam..."
-wget https://github.com/ocaml/opam/releases/download/2.0.0/opam-2.0.0-x86_64-linux
-sudo mv opam-2.0.0-x86_64-linux /usr/local/bin/opam
+wget https://github.com/ocaml/opam/releases/download/2.0.3/opam-2.0.3-x86_64-linux
+sudo mv opam-2.0.3-x86_64-linux /usr/local/bin/opam
 sudo chmod a+x /usr/local/bin/opam
 
 echo "Creating tezd user..."
@@ -36,6 +36,8 @@ su tezd -c "git clone -b mainnet https://gitlab.com/tezos/tezos.git"
 sleep 5
 cd $HPATH/tezos
 su tezd -c "sh -c '$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/custom_install_build_deps.sh)' && eval \$(opam env) && make"
+export PATH=$HPATH/tezos:$PATH
+export TEZOS_CLIENT_UNSAFE_DISABLE_DISCLAIMER=Y
 cd $HPATH
 
 sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-update-scripts.sh)"
