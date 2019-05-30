@@ -8,12 +8,12 @@ HPATH=/usr/lib/tezd
 	mkdir $HPATH/.tezos-node
 	cd $HPATH/.tezos-node
 	cat > version.json << EOF
-{ "version": "0.0.3" }
+{ "version": "0.0.1" }
 EOF
 
-wget http://quicksync.tzdutch.com/latest-snapshot-folders.tar.lz4
-lz4 -d latest-snapshot-folders.tar.lz4 | tar xf -
-rm -f latest-snapshot-folders.tar.lz4
+wget http://quicksync.tzdutch.com/latest.tar.lz4
+lz4 -d latest.tar.lz4 | tar xf -
+rm -f latest.tar.lz4
 
 cd $HPATH
 chown -Rf tezd:tezd $HPATH/.tezos-node
