@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo dpkg --configure -a
 sudo apt-get update && apt-get dist-upgrade -y
 
 sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-install.sh)"
