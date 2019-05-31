@@ -43,7 +43,7 @@ cd $HPATH
 sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-update-scripts.sh)"
 
 if [ ! -d "$HPATH/.tezos-node" ]; then 
-sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-update-scripts.sh)"
+sh -c "$(curl -sL https://raw.githubusercontent.com/TezTech/tezd-install/master/tezd-quicksync.sh)"
 su tezd -c "$HPATH/tezos/tezos-node upgrade storage"
 fi
 
